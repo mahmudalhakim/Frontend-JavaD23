@@ -1,0 +1,50 @@
+/*
+*{
+    margin: 0;
+}
+*/
+
+body {
+    /* Teckenfärg */
+    color: red;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-size: 2em;
+    font-weight: normal;
+    color: #115c5c;
+}
+
+.intro {
+    font-size: 3em;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+
+a {
+    font-size: 2em;
+}
+
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #8a2be2
+}
+
+a:hover {
+    color: #a52a2a;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #7fff00;
+}
