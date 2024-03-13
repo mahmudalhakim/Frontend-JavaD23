@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Demo</title>
+    <style>
+        .heading{
+            color:blueviolet;
+            border-bottom: 1px solid blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading">DOM demo</h1>
+    <div id="demo1"></div>
+    <h2 id="demo2"></h2>
+
+    <script>
+        
+        // document.write("Hello World");
+
+        let demo = document.getElementById('demo1');
+        demo.innerHTML = "<h2>Rubrik via innerHTML</h2>";
+
+        demo = document.getElementById('demo2');
+        demo.textContent = "Rubrik via textContent";
+
+        // Inline CSS
+        demo.style.fontSize = "3em";
+        demo.style.color = "maroon";
+        demo.style.display = "none";
+
+        // Koppla en CSS-klass
+        demo = document.getElementById('heading');
+        demo.classList.add('heading');
+
+        // Ta bort en CSS-klass
+        demo.classList.remove('heading');
+
+        // Växla en klass
+        demo.classList.toggle('heading');
+
+
+    </script>
+</body>
+</html>
