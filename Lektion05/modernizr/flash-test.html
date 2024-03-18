@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Test</title>
+</head>
+
+<body>
+    <h1>Flash Test</h1>
+
+    <script src="modernizr-custom.js"></script>
+
+    <script>
+        if (Modernizr.flash) {
+            console.log("Det finns stöd för Flash");
+        } else {
+            console.error("Flash is missing!")
+        }
+        </script>
+</body>
+
+</html>

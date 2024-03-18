@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage Demo</title>
+</head>
+
+<body>
+    <h1>LocalStorage Demo</h1>
+    <script>
+
+        // Skapa en key-value-pair i localStorage
+        localStorage.setItem("fname", "Mahmud");
+        localStorage.setItem("lname", "Al Hakim");
+        localStorage.setItem("age", "50");
+
+        // Hämta data 
+        let name = localStorage.getItem('name');
+        console.log(name);
+
+        // Hämta alla nycklar och värden
+        for (let i = 0; i < localStorage.length; i++) {
+            console.log("Key: " + localStorage.key(i));
+            console.log("Value: " + localStorage.getItem(localStorage.key(i)));
+        }
+
+        // Ta bort data
+        localStorage.removeItem('name');
+        name = localStorage.getItem('name');
+        console.log(name); // null
+
+        console.log(localStorage);
+        console.log("Rensa allt från localStorage");
+        localStorage.clear();
+        console.log(localStorage);
+
+        // Spara en array i localStorage
+        const myArray = ['A', 'B', 'C'];
+        localStorage.setItem('myBadArray', myArray); // FEL
+        let arrayFromLS = localStorage.getItem('myBadArray');
+        console.log(arrayFromLS[0]); // A
+        console.log(arrayFromLS[1]); // ,
+        console.log(arrayFromLS[2]); // B
+
+        // En "bättre" lösning
+        localStorage.setItem('myGoodArray', JSON.stringify(myArray)); // Rätt
+
+        console.log("Utan Parse");
+        arrayFromLS = localStorage.getItem('myGoodArray')
+        console.log(arrayFromLS[0]); // [
+        console.log(arrayFromLS[1]); // "
+        console.log(arrayFromLS[2]); // A
+
+        // Konvertera tillbaka till en array med JSON.Parse
+        console.log("Med Parse");
+        arrayFromLS = JSON.parse(localStorage.getItem('myGoodArray'));
+        console.log(arrayFromLS[0]); // A
+        console.log(arrayFromLS[1]); // B
+        console.log(arrayFromLS[2]); // C
+
+        // Lagra JS-Objekt i LS
+        let myObject = {
+            first: "A",
+            second: "B",
+            third: "C"
+        }
+        localStorage.setItem('myBadObject', myObject); // FEL
+        localStorage.setItem('myGoodObject', JSON.stringify(myObject)); // Rätt
+
+        console.log(localStorage.getItem('myBadObject')); // [object Object]
+        const obj = JSON.parse(localStorage.getItem('myGoodObject'));
+        console.log(obj);
+        // {first: 'A', second: 'B', third: 'C'}
+        console.log(obj.first); // A
+
+    </script>
+</body>
+
+</html>
